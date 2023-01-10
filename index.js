@@ -8,7 +8,9 @@ const PORT = 5000
 const botSettings = require('./file/bot.json')
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}))
 
 app.post('/api/send-test-to-telegram', (request, response) => {
     const text = `новый тест: <code>${JSON.stringify(request.body)}</code>`
